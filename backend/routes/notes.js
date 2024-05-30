@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/', (req, res) => {
+router.post('/fetchallnotes', (req, res) => {
     res.json([])
-}) 
+})
 module.exports = router  

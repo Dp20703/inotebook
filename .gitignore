@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 #hide Files
-/backend/db.js
+backend/db.js
+backend/node_modules
