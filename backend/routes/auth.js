@@ -9,8 +9,8 @@ var fetchuser = require('../middleware/fetchuser');
 
 //ROUTE 1:Create a user using POST: "api/auth/createuser" // No login required
 router.post('/createuser',
-    body('name', 'Enter a valid name').isLength({ min: 3 }),
-    [body('email', 'Enter a valid email').isEmail(),
+      [body('name', 'Enter a valid name').isLength({ min: 3 }),
+  body('email', 'Enter a valid email').isEmail(),
     body('password', 'Enter a valid password').isLength({ min: 5 }),
     ], async (req, res) => {
 
