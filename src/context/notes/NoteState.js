@@ -2,9 +2,9 @@ import NoteContext from "./NoteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-const notesInitial=[
+  const notesInitial = [
     {
-      "_id": "6658ae5dd95f1f81f152b96b",
+      "_id": "6658ae5edd95f1f81f152b96b",
       "user": "6658a81d7637eecad30941aa",
       "title": "mytitle",
       "description": "my description",
@@ -13,7 +13,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658ae5ed95f1f81f152b96d",
+      "_id": "6658ae5e3ed95f1f81f152b96d",
       "user": "6658a81d7637eecad30941aa",
       "title": "mytitle",
       "description": "my description",
@@ -22,7 +22,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658b0bb5d6a81f28938affd",
+      "_id": "6658b0becb5d6a81f28938affd",
       "user": "6658a81d7637eecad30941aa",
       "title": "new note",
       "description": "my note",
@@ -31,7 +31,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658ae5dd95f1f81f152b96b",
+      "_id": "6658ae5eddc95f1f81f152b96b",
       "user": "6658a81d7637eecad30941aa",
       "title": "mytitle",
       "description": "my description",
@@ -40,7 +40,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658ae5ed95f1f81f152b96d",
+      "_id": "6658aee5ed95fc1f81f152b96d",
       "user": "6658a81d7637eecad30941aa",
       "title": "mytitle",
       "description": "my description",
@@ -49,7 +49,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658b0bb5d6a81f28938affd",
+      "_id": "6658bc0b3b5d6a81f28938affd",
       "user": "6658a81d7637eecad30941aa",
       "title": "new note",
       "description": "my note",
@@ -58,7 +58,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658ae5dd95f1f81f152b96b",
+      "_id": "6658ae5d3d95cf1f81f152b96b",
       "user": "6658a81d7637eecad30941aa",
       "title": "mytitle",
       "description": "my description",
@@ -67,7 +67,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658ae5ed95f1f81f152b96d",
+      "_id": "66583ae5edc95f1f81f152b96d",
       "user": "6658a81d7637eecad30941aa",
       "title": "mytitle",
       "description": "my description",
@@ -76,7 +76,7 @@ const notesInitial=[
       "__v": 0
     },
     {
-      "_id": "6658b0bb5d6a81f28938affd",
+      "_id": "6658b30bb5d6a81f2c8938affd",
       "user": "6658a81d7637eecad30941aa",
       "title": "new note",
       "description": "my note",
@@ -86,9 +86,9 @@ const notesInitial=[
     },
   ]
   const [notes, setNotes] = useState(notesInitial)
-    return (<NoteContext.Provider value={{notes,setNotes}}>
-        {props.children}
-    </NoteContext.Provider>)
+  return (<NoteContext.Provider value={{ notes, setNotes }}>
+    {props.children}
+  </NoteContext.Provider>)
 }
 
 export default NoteState;
