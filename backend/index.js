@@ -1,9 +1,16 @@
 const connectToMongo = require('./db');
 connectToMongo();
 const express = require('express')
-const app = express()
+var cors = require('cors')
+
 const port = 5000
+const app = express()
 app.use(express.json())
+app.use(cors())
+
+
+
+
 
 
 //Availabel Routes

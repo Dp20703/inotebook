@@ -16,7 +16,7 @@ const Noteitem = (props) => {
     <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}}></i>
     <i className="fa-solid fa-file-pen mx-2" ></i>
     </div>
-    <p className="card-text">{note.description} Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p className="card-text">{note.description} <br></br>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
 </div>
     </div>
