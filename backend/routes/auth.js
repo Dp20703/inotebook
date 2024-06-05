@@ -43,7 +43,8 @@ router.post('/createuser',
             }
 
             const Authtoken = jwt.sign(data, JWT_SECRET);
-            res.json({ Authtoken })
+            success=true
+            res.json({success, Authtoken })
             console.log(Authtoken)
             // res.json(user)
         }
@@ -59,6 +60,7 @@ router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password cannto be blank').exists(),],
     async (req, res) => {
+        let success=false;
 
         //If there are errors,return Bad request and the errors:
         const errors = validationResult(req);
@@ -70,11 +72,13 @@ router.post('/login', [
         try {
             let user = await User.findOne({ email });
             if (!user) {
-                return res.status(400).json({ errors: "Please login with correct Crendentials" });
+                success=false
+                return res.status(400).json({success, errors: "Please login with correct Crendentials" });
             }
             const comparePass = await bcrypt.compare(password, user.password);
             if (!comparePass) {
-                return res.status(400).json({ errors: "Please login with correct Crendentials" });
+                success=false
+                return res.status(400).json({success, errors: "Please login with correct Crendentials" });
             }
             const JWT_SECRET = "dpisgood$oy"
             const data = {
@@ -84,7 +88,8 @@ router.post('/login', [
             }
 
             const Authtoken = jwt.sign(data, JWT_SECRET);
-            res.json({ Authtoken })
+            success=true
+            res.json({success, Authtoken })
             console.log(Authtoken)
         }
         //Catch errors:
