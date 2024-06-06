@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Signup = () => {
+const Signup = (props) => {
     const [credentails, setcredentails] = useState({ name: '', email: '', password: '', cpassword: '' })
     let history = useNavigate()
     const { name, email, password, cpassword } = credentails
@@ -23,9 +23,11 @@ const Signup = () => {
             //save the auth token and redirect:
             localStorage.setItem('token', json.authtoken);
             history('/')
+            props.showAlert('Account Created Successfully','success')
+            
         }
         else {
-            alert('Invaild Credentails')
+            props.showAlert('Invaild Details','danger')
         }
     }
 
@@ -37,17 +39,17 @@ const Signup = () => {
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" value={name} className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onChange} minLength={3} required/>
+                    <input type="text" value={name} className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onChange} minLength={3} required />
 
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" value={email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange} required/>
+                    <input type="email" value={email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange} required />
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" value={password} className="form-control" name='password' id="password" onChange={onChange} minLength={5} required/>
+                    <input type="password" value={password} className="form-control" name='password' id="password" onChange={onChange} minLength={5} required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="cpassword" className="form-label">Confirm Password</label>

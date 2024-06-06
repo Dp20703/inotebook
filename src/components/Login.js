@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
     const [credentails, setcredentails] = useState({ email: '', password: '' })
-    let history = useNavigate ()
+    let history = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,9 +21,10 @@ const Login = () => {
             //save the auth token and redirect:
             localStorage.setItem('token', json.authtoken);
             history('/')
+          props.showAlert('Logged in Successfully','success')
         }
         else {
-            alert('Invaild Credentails')
+            props.showAlert('Invaild Credentails','danger')
         }
     }
 
@@ -35,7 +36,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" value={credentails.email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange} required/>
+                    <input type="email" value={credentails.email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange} required />
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
@@ -43,7 +44,7 @@ const Login = () => {
                     <input type="password" value={credentails.password} className="form-control" name='password' id="password" onChange={onChange} minLength={5} required />
                 </div>
 
-                <button  type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     )
