@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
+    const {showAlert}=props
     const [credentails, setcredentails] = useState({ email: '', password: '' })
     let history = useNavigate()
 
@@ -19,12 +20,12 @@ const Login = (props) => {
         console.log(json)
         if (json.success) {
             //save the auth token and redirect:
-            localStorage.setItem('token', json.authtoken);
+            localStorage.setItem('token', json.Authtoken);
+            showAlert('Logged in Successfully','success')
             history('/')
-          props.showAlert('Logged in Successfully','success')
         }
         else {
-            props.showAlert('Invaild Credentails','danger')
+            showAlert('Invaild Credentails','danger')
         }
     }
 
@@ -32,9 +33,10 @@ const Login = (props) => {
         setcredentails({ ...credentails, [e.target.name]: e.target.value })
     }
     return (
-        <div>
+        <div className='container mt-3'>
+            <h2 className='my-2 d-flex justify-content-center'>Login to continue to iNotebook</h2>
             <form onSubmit={handleSubmit} >
-                <div className="mb-3">
+                <div className="my-3">
                     <label htmlFor="email" className="form-label">Email address</label>
                     <input type="email" value={credentails.email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange} required />
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>

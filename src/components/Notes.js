@@ -2,13 +2,21 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import noteContext from '../context/notes/NoteContext'
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
-
+import { useNavigate } from 'react-router-dom'
 const Notes = (props) => {
-    const {showAlert}=props
+    let history = useNavigate()
+    const { showAlert } = props
     const context = useContext(noteContext)
     const { notes, getNotes, editNote } = context;
     useEffect(() => {
-        getNotes()
+        if (localStorage.getItem('token')) {
+            // showAlert("You are a User",'success')
+            getNotes()
+        }
+        else {
+            showAlert("You are not a User", 'danger')
+            history('/login')
+        }
         // eslint-disable-next-line
     }, [])
     const ref = useRef(null)
@@ -18,21 +26,19 @@ const Notes = (props) => {
     const updateNote = (currentNote) => {
         ref.current.click();
         setnote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
-
     }
     const handleClick = (e) => {
-        console.log("updating the note.....", note)
+        // console.log("updating the note.....", note)
         editNote(note.id, note.etitle, note.edescription, note.etag)
+        showAlert("Update Successfully", "success")
         refClose.current.click();
-        showAlert("Update Successfully","success")
-
     }
     const onChange = (e) => {
         setnote({ ...note, [e.target.name]: e.target.value })
     }
     return (
         <>
-            <AddNote showAlert={showAlert}/>
+            <AddNote showAlert={showAlert} />
             <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
@@ -78,7 +84,7 @@ const Notes = (props) => {
                     {notes.length === 0 && "No notes to display"}
                 </div>
                 {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={showAlert}/>
+                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={showAlert} />
                 })}
             </div>
         </>

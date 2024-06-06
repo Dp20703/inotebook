@@ -13,12 +13,13 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1OGE4MWQ3NjM3ZWVjYWQzMDk0MWFhIn0sImlhdCI6MTcxNzA4NjI4MH0.Ro0LiABuxSkEanKZXY89nkhelxO3AqqBF493QKs0uiA",
+        'auth-token': localStorage.getItem('token'),
+
       }
     });
     const json = await response.json();
-    console.log(json)
-    setNotes(json)
+    // console.log(json)
+    setNotes(json) 
 
   }
 
@@ -29,12 +30,12 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1OGE4MWQ3NjM3ZWVjYWQzMDk0MWFhIn0sImlhdCI6MTcxNzA4NjI4MH0.Ro0LiABuxSkEanKZXY89nkhelxO3AqqBF493QKs0uiA",
+        'auth-token': localStorage.getItem('token'),
       },
       body: JSON.stringify({ title, description, tag }),
     });
     const note = await response.json();
-    console.log("Adding a new note")
+    // console.log("Adding a new note")
     setNotes(notes.concat(note))
   }
 
@@ -46,12 +47,12 @@ const NoteState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1OGE4MWQ3NjM3ZWVjYWQzMDk0MWFhIn0sImlhdCI6MTcxNzA4NjI4MH0.Ro0LiABuxSkEanKZXY89nkhelxO3AqqBF493QKs0uiA",
+        'auth-token': localStorage.getItem('token'),
       }
     });
     const json = await response.json();
     console.log(json)
-    console.log("Deleting a Note with Id" + id)
+    // console.log("Deleting a Note with Id" + id)
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
   }
@@ -63,7 +64,7 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1OGE4MWQ3NjM3ZWVjYWQzMDk0MWFhIn0sImlhdCI6MTcxNzA4NjI4MH0.Ro0LiABuxSkEanKZXY89nkhelxO3AqqBF493QKs0uiA",
+        'auth-token': localStorage.getItem('token'),
       },
       body: JSON.stringify({ title, description, tag }),
     });
@@ -82,7 +83,7 @@ const NoteState = (props) => {
         break;
       }
     }
-    console.log(id, newNotes)
+    // console.log(id, newNotes)
     setNotes(newNotes)
   }
 

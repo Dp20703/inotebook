@@ -19,13 +19,13 @@ function App() {
      })
      setInterval(() => {
        setAlert(null);
-     }, 3500);
+     }, 1500);
    }
   return (
     <>
       <NoteState>
         <Router>
-          <Navbar />
+          <Navbar showAlert={showAlert} />
         <Alert alert={alert}/>
           <div className="container">
             <Routes>

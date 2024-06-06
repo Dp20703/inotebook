@@ -21,9 +21,10 @@ const Signup = (props) => {
         console.log(json)
         if (json.success) {
             //save the auth token and redirect:
-            localStorage.setItem('token', json.authtoken);
-            history('/')
+            // console.log(json.Authtoken)
+            localStorage.setItem('token', json.Authtoken);
             props.showAlert('Account Created Successfully','success')
+            history('/')
             
         }
         else {
@@ -35,9 +36,10 @@ const Signup = (props) => {
         setcredentails({ ...credentails, [e.target.name]: e.target.value })
     }
     return (
-        <div>
+        <div className='container mt-3'>
+        <h2 className='my-2 d-flex justify-content-center'>Create an account to use iNotebook</h2>
             <form onSubmit={handleSubmit} >
-                <div className="mb-3">
+                <div className="my-3">
                     <label htmlFor="name" className="form-label">Name</label>
                     <input type="text" value={name} className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onChange} minLength={3} required />
 
