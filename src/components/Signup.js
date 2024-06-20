@@ -23,12 +23,12 @@ const Signup = (props) => {
             //save the auth token and redirect:
             // console.log(json.Authtoken)
             localStorage.setItem('token', json.Authtoken);
-            props.showAlert('Account Created Successfully','success')
+            props.showAlert('Account Created Successfully', 'success')
             history('/')
-            
+
         }
         else {
-            props.showAlert('Invaild Details','danger')
+            props.showAlert('Invaild Details', 'danger')
         }
     }
 
@@ -37,28 +37,28 @@ const Signup = (props) => {
     }
     return (
         <div className='container mt-3'>
-        <h2 className='my-2 d-flex justify-content-center'>Create an account to use iNotebook</h2>
+            <h2 className='my-2 d-flex justify-content-center' style={{ color: props.mode === "dark" ? "white" : "#042743" }}>Create an account to use iNotebook</h2>
             <form onSubmit={handleSubmit} >
                 <div className="my-3">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" value={name} className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onChange} minLength={3} required />
+                    <label htmlFor="name" className="form-label" style={{ color: props.mode === "dark" ? "white" : "#042743" }}>Name</label>
+                    <input type="text" value={name} className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onChange} minLength={3} style={{ backgroundColor: props.mode === "light" ? "white" : "rgb(9 48 80)" ,color: props.mode === "dark" ? "white" : "#042743" }} required />
 
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" value={email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange} required />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                    <label htmlFor="email" className="form-label" style={{ color: props.mode === "dark" ? "white" : "#042743" }}>Email address</label>
+                    <input type="email" value={email} className="form-control" name='email' id="email" aria-describedby="emailHelp" onChange={onChange}  style={{ backgroundColor: props.mode === "light" ? "white" : "rgb(9 48 80)" ,color: props.mode === "dark" ? "white" : "#042743" }}  required />
+                    <div id="emailHelp" className="form-text" style={{color: props.mode === "dark" ? "white" : "rgb(9 48 80)" }}>We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" value={password} className="form-control" name='password' id="password" onChange={onChange} minLength={5} required />
+                    <label htmlFor="password" className="form-label" style={{ color: props.mode === "dark" ? "white" : "#042743" }}>Password</label>
+                    <input type="password" value={password} className="form-control" name='password' id="password" onChange={onChange} minLength={5} style={{ backgroundColor: props.mode === "light" ? "white" : "rgb(9 48 80)" ,color: props.mode === "dark" ? "white" : "#042743" }} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-                    <input type="password" value={cpassword} className="form-control" name='cpassword' id="cpassword" onChange={onChange} minLength={5} required />
+                    <label htmlFor="cpassword" className="form-label" style={{ color: props.mode === "dark" ? "white" : "#042743" }}>Confirm Password</label>
+                    <input type="password" value={cpassword} className="form-control" name='cpassword' id="cpassword" onChange={onChange} minLength={5}  style={{ backgroundColor: props.mode === "light" ? "white" : "rgb(9 48 80)" ,color: props.mode === "dark" ? "white" : "#042743" }} required />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary" >Submit</button>
             </form>
         </div>
     )
