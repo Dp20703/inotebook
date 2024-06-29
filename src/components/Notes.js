@@ -5,7 +5,7 @@ import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom'
 const Notes = (props) => {
     let history = useNavigate()
-    const { showAlert, mode } = props
+    const { showAlert, mode,reference } = props
     const context = useContext(noteContext)
     const { notes, getNotes, editNote } = context;
     useEffect(() => {
@@ -84,7 +84,7 @@ const Notes = (props) => {
                     {notes.length === 0 && "No notes to display"}
                 </div>
                 {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={showAlert} mode={mode} />
+                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={showAlert} mode={mode} reference={reference}/>
                 })}
             </div>
         </>

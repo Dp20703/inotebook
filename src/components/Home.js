@@ -1,11 +1,13 @@
+import { useRef } from "react"
 import Notes from "./Notes"
 
 const Home = (props) => {
+  const ref=useRef(null)
 
 
   return (
-    <div className="container my-3">
-      <Notes showAlert={props.showAlert} mode={props.mode}/>
+    <div ref={ref} className="container my-3">
+      <Notes showAlert={props.showAlert} mode={props.mode} reference={ref}/>
     </div>
 
   )

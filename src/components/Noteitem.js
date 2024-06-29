@@ -1,16 +1,17 @@
 import React, { useContext } from 'react'
 import noteContext from '../context/notes/NoteContext'
+import { motion } from "framer-motion"
 
 
 const Noteitem = (props) => {
   const { showAlert } = props
   const context = useContext(noteContext)
   const { deleteNote } = context;
-  const { note, updateNote } = props;
+  const { note, updateNote, reference } = props;
   return (
-    <div className='col-md-3'>
+    <motion.div drag dragConstraints={reference} whileDrag={{ scale: 1.1 }} dragElastic={0.1} dragTransition={{ bounceStiffness: 100, bounceDamping: 40 }} className='col-md-3'>
       <div className="card my-3">
-        <div className="card-body"  style={{ backgroundColor: props.mode === "light" ? "white" : " rgb(4 37 64)" ,color: props.mode === "dark" ? "white" : "#042743" }} >
+        <div className="card-body" style={{ backgroundColor: props.mode === "light" ? "white" : " rgb(4 37 64)", color: props.mode === "dark" ? "white" : "#042743" }} >
           <div className="d-flex align-items-center">
 
             <h5 className="card-title" >{note.title} </h5>
@@ -20,7 +21,7 @@ const Noteitem = (props) => {
           <p className="card-text">{note.description}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
