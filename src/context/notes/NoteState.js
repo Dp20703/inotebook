@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const NoteState = (props) => {
   const host = `${process.env.REACT_APP_BACKEND_URL}`;
-  console.log("Host is", host);
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial)
 
@@ -19,7 +18,6 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json();
-    // console.log(json)
     setNotes(json)
 
   }
@@ -36,7 +34,6 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
     const note = await response.json();
-    // console.log("Adding a new note")
     setNotes(notes.concat(note))
   }
 
@@ -52,8 +49,6 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json();
-    console.log(json)
-    // console.log("Deleting a Note with Id" + id)
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
   }
@@ -70,8 +65,6 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
     const json = await response.json();
-    console.log(json)
-
     let newNotes = JSON.parse(JSON.stringify(notes))
 
     //Logic to Edit a Note
@@ -84,7 +77,6 @@ const NoteState = (props) => {
         break;
       }
     }
-    // console.log(id, newNotes)
     setNotes(newNotes)
   }
 
