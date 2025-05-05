@@ -2,7 +2,8 @@ import NoteContext from "./NoteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000";
+  const host = `${process.env.REACT_APP_BACKEND_URL}`;
+  console.log("Host is", host);
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial)
 
@@ -19,7 +20,7 @@ const NoteState = (props) => {
     });
     const json = await response.json();
     // console.log(json)
-    setNotes(json) 
+    setNotes(json)
 
   }
 
