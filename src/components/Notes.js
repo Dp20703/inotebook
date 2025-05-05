@@ -28,7 +28,6 @@ const Notes = (props) => {
         setnote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
     }
     const handleClick = (e) => {
-        // console.log("updating the note.....", note)
         editNote(note.id, note.etitle, note.edescription, note.etag)
         showAlert("Update Successfully", "success")
         refClose.current.click();

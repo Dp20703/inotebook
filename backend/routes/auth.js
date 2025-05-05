@@ -23,7 +23,6 @@ router.post('/createuser',
         try {
             //Check weather the user with this email exists already 
             let user = await User.findOne({ email: req.body.email });
-            console.log(user)
             if (user) {
                 return res.status(400).json({ error: "Sorry a user with this email already exits" })
             }
@@ -46,7 +45,6 @@ router.post('/createuser',
             const Authtoken = jwt.sign(data, process.env.JWT_SECRET);
             success = true
             res.json({ success, Authtoken })
-            console.log(Authtoken)
             // res.json(user)
         }
         //Catch errors:
@@ -91,7 +89,7 @@ router.post('/login', [
             const Authtoken = jwt.sign(data, process.env.JWT_SECRET);
             success = true
             res.json({ success, Authtoken })
-            console.log(Authtoken)
+    
         }
         //Catch errors:
         catch (error) {

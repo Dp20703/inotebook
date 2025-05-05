@@ -3,9 +3,12 @@ const connectToMongo = require('./db');
 connectToMongo();
 const express = require('express')
 var cors = require('cors')
+const morgan = require('morgan');
 
 const port = process.env.PORT || 4000
+
 const app = express()
+app.use(morgan('tiny')); // Log HTTP requests in "tiny" format
 app.use(express.json())
 app.use(cors())
 
