@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# 📓 iNotebook Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**iNotebook** is a secure, full-stack web application designed to help users create, manage, and organize personal notes in the cloud. With intuitive UI/UX, robust authentication, and real-time data operations, iNotebook provides a seamless note-taking experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Key Features
 
-### `npm start`
+- ✅ **User Authentication** – Secure registration and login using JSON Web Tokens (JWT).
+- 🗃️ **Personalized Note Management** – Create, read, update, and delete notes tailored to each authenticated user.
+- 🧠 **Modal-Based Editing** – Edit notes efficiently with a modern modal popup interface.
+- 💾 **Persistent Storage** – Notes are stored in a MongoDB database, accessible only by the authenticated user.
+- 📱 **Responsive UI** – Clean and responsive frontend built with modern web technologies.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🖥️ Screenshots
 
-### `npm test`
+### 🔐 Login Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Secure user login screen.
+![Login Page](./public/images/Screenshots/Login.png)
 
-### `npm run build`
+### 📝 Registration Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+New users can sign up to start using iNotebook.
+![Registration Page](./public/images/Screenshots/Registration.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🏠 Home / Dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Authenticated users can view, edit, and delete their notes.
+![Home Dashboard](./public/images/Screenshots/Home.png)
 
-### `npm run eject`
+### ✏️ Update Note Modal
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Modern modal interface for editing existing notes.
+![Update Modal](./public/images/Screenshots/UpdateModal.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Technology Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Frontend
 
-## Learn More
+- React.js
+- HTML5 & CSS3
+- Bootstrap / Tailwind CSS (if used)
+- JavaScript (ES6+)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Node.js
+- Express.js
 
-### Code Splitting
+### Database
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- MongoDB with Mongoose
 
-### Analyzing the Bundle Size
+### Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- JWT (JSON Web Tokens)
+- bcrypt.js for password hashing
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🧑‍💻 Getting Started
 
-### Advanced Configuration
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Node.js and npm installed
+- MongoDB instance (local or cloud)
 
-### Deployment
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. **Clone the repository**
 
-### `npm run build` fails to minify
+```bash
+git clone https://github.com/yourusername/inotebook.git
+cd inotebook
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. **Install dependencies**
+
+```bash
+npm install
+cd backend
+npm install
+```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory with the following:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+```
+
+4. **Run the application**
+
+```bash
+# Run backend
+npm run server
+
+# In a new terminal tab, run frontend
+npm start
+```
+
+---
+
+## 🛡️ Security
+
+- All API routes are protected using JWT.
+- User passwords are hashed and salted using bcrypt.
+- CORS and input validation implemented for secure data handling.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](./public/LICENSE) file for details.
+
+---
+
+## 📬 Contact
+
+Created by [Darshan] – reach out via [codewithdp2073@email.com](mailto:codewithdp2073@email.com)
