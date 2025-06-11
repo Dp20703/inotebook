@@ -75,7 +75,7 @@ Modern modal interface for editing existing notes.
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/inotebook.git
+git clone https://github.com/Dp20703/inotebook
 cd inotebook
 ```
 
